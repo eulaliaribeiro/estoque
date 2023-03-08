@@ -1,21 +1,22 @@
 package com.ada.mercado.estoque.entities;
 
-import lombok.Data;
-
+import lombok.*;
 import javax.persistence.*;
 
-@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
 @Table(name = "Produto")
 public class Produto {
     @Id
-    @Column(name = "id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String idProduto;
     private String nome;
     private String marca;
-    private String unidade;
-    private double quantidadeDaUnidade;
+    private Integer quantidade;
+    private Double preco;
 
-    private String identificador;
-
-    private long unidadeEstoque;
 }
